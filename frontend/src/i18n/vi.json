@@ -1,0 +1,97 @@
+{
+  "app.title": "FacebookInbox",
+  "app.subtitle": "Quản lý Page & chạy tác vụ messaging",
+
+  "tab.pageContentLink": "Page & Content & Link",
+  "tab.proxy": "Proxy",
+
+  "pageList.title": "Danh sách Page",
+  "pageList.placeholder": "Mỗi dòng một Page ID\n100001\n100002\n100003",
+
+  "content.title": "Content",
+  "content.placeholder": "Phân tách bằng dấu |\nContent 1 dòng 1\nContent 1 dòng 2|Content 2|Content 3",
+
+  "shareContent.title": "Content Share",
+  "shareContent.placeholder": "Text kèm theo link share, phân tách bằng |\nText 1 dòng 1\nText 1 dòng 2|Text 2|Text 3",
+
+  "link.title": "Danh sách Link",
+  "link.placeholder": "Mỗi dòng một link\nhttps://example.com/post/1\nhttps://example.com/post/2",
+
+  "proxyList.title": "Danh sách Proxy",
+  "proxyList.placeholder": "Mỗi dòng một proxy\nhttp://127.0.0.1:8001\nhttp://user:pass@127.0.0.1:8002",
+
+  "common.count": "Số lượng",
+  "common.cancel": "Huỷ",
+  "common.close": "Đóng",
+
+  "image.label": "Hình ảnh",
+  "image.pick": "Chọn file",
+  "image.clear": "Xoá",
+  "image.none": "Chưa chọn hình ảnh",
+
+  "settings.title": "Cấu hình",
+  "settings.threads": "Số luồng",
+  "settings.delay": "Delay (giây)",
+  "settings.maxErrors": "Lỗi tối đa",
+  "settings.pagesPerThread": "Max / Account",
+  "settings.accountPerLink": "Số Account / Link",
+  "settings.language": "Ngôn ngữ",
+  "settings.deleteThread": "Xoá cuộc trò chuyện sau khi gửi",
+  "settings.deleteMessage": "Xoá từng tin nhắn sau khi gửi",
+
+  "actions.start": "BẮT ĐẦU",
+  "actions.stop": "STOP",
+
+  "stats.workers": "Workers",
+  "stats.running": "Đang chạy",
+  "stats.success": "Thành công",
+  "stats.error": "Lỗi",
+  "stats.remaining": "Còn lại",
+  "stats.state": "Trạng thái",
+
+  "table.index": "STT",
+  "table.account": "Account",
+  "table.proxy": "Proxy",
+  "table.success": "Thành công",
+  "table.error": "Lỗi",
+  "table.status": "Trạng thái",
+  "table.direct": "Kết nối trực tiếp",
+  "table.directShort": "Direct",
+
+  "account.title": "Account",
+  "account.add": "Thêm Account",
+  "account.deleteSelected": "Xoá Account đã chọn",
+  "account.addDialogTitle": "Thêm Account",
+  "account.addPlaceholder": "Mỗi dòng một Account\naccount-001\naccount-002\naccount-003",
+  "account.confirmAdd": "Thêm Account",
+  "account.confirmDelete": "Xoá {n} Account đã chọn?",
+  "account.empty": "Chưa có Account. Chuột phải để thêm.",
+  "account.selected": "Đã chọn",
+
+  "status.ready": "Sẵn sàng",
+  "status.waiting": "Đang chờ",
+  "status.running": "Đang chạy",
+  "status.completed": "Hoàn thành",
+  "status.stopped": "Đã dừng",
+  "status.error": "Lỗi",
+
+  "state.stopped": "Đã dừng",
+  "state.running": "Đang chạy",
+  "state.done": "Hoàn tất",
+
+  "lang.vi": "Tiếng Việt",
+  "lang.en": "English",
+
+  "error.title": "Lỗi",
+  "error.validation.threads": "Số luồng phải lớn hơn hoặc bằng 1.",
+  "error.validation.delay": "Delay phải lớn hơn hoặc bằng 0.",
+  "error.validation.maxErrors": "Lỗi tối đa phải lớn hơn hoặc bằng 1.",
+  "error.validation.pagesPerThread": "Max / Account phải lớn hơn hoặc bằng 1.",
+  "error.validation.accountPerLink": "Số Account / Link phải lớn hơn hoặc bằng 1.",
+  "error.validation.image": "Định dạng hình ảnh không được hỗ trợ.",
+  "error.runner.noPages": "Danh sách Page đang trống.",
+  "error.runner.noAccounts": "Danh sách Account đang trống.",
+  "error.runner.alreadyRunning": "Tác vụ đang chạy.",
+  "error.app.notReady": "Ứng dụng chưa sẵn sàng.",
+  "error.generic": "Đã xảy ra lỗi."
+}

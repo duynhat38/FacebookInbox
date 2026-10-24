@@ -1,0 +1,97 @@
+{
+  "app.title": "FacebookInbox",
+  "app.subtitle": "Manage Pages & run messaging tasks",
+
+  "tab.pageContentLink": "Page & Content & Link",
+  "tab.proxy": "Proxy",
+
+  "pageList.title": "Page List",
+  "pageList.placeholder": "One Page ID per line\n100001\n100002\n100003",
+
+  "content.title": "Content",
+  "content.placeholder": "Separated by |\nContent 1 line 1\nContent 1 line 2|Content 2|Content 3",
+
+  "shareContent.title": "Share Content",
+  "shareContent.placeholder": "Text to attach with share link, separated by |\nText 1 line 1\nText 1 line 2|Text 2|Text 3",
+
+  "link.title": "Link List",
+  "link.placeholder": "One link per line\nhttps://example.com/post/1\nhttps://example.com/post/2",
+
+  "proxyList.title": "Proxy List",
+  "proxyList.placeholder": "One proxy per line\nhttp://127.0.0.1:8001\nhttp://user:pass@127.0.0.1:8002",
+
+  "common.count": "Count",
+  "common.cancel": "Cancel",
+  "common.close": "Close",
+
+  "image.label": "Image",
+  "image.pick": "Choose file",
+  "image.clear": "Clear",
+  "image.none": "No image selected",
+
+  "settings.title": "Settings",
+  "settings.threads": "Threads",
+  "settings.delay": "Delay (seconds)",
+  "settings.maxErrors": "Max Error",
+  "settings.pagesPerThread": "Max / Account",
+  "settings.accountPerLink": "Account per Link",
+  "settings.language": "Language",
+  "settings.deleteThread": "Delete thread after sending",
+  "settings.deleteMessage": "Delete each message after sending",
+
+  "actions.start": "START",
+  "actions.stop": "STOP",
+
+  "stats.workers": "Workers",
+  "stats.running": "Running",
+  "stats.success": "Success",
+  "stats.error": "Error",
+  "stats.remaining": "Remaining",
+  "stats.state": "State",
+
+  "table.index": "No.",
+  "table.account": "Account",
+  "table.proxy": "Proxy",
+  "table.success": "Success",
+  "table.error": "Error",
+  "table.status": "Status",
+  "table.direct": "Direct connection",
+  "table.directShort": "Direct",
+
+  "account.title": "Account",
+  "account.add": "Add Account",
+  "account.deleteSelected": "Delete selected Account",
+  "account.addDialogTitle": "Add Account",
+  "account.addPlaceholder": "One Account per line\naccount-001\naccount-002\naccount-003",
+  "account.confirmAdd": "Add Account",
+  "account.confirmDelete": "Delete {n} selected Account?",
+  "account.empty": "No account yet. Right-click to add.",
+  "account.selected": "Selected",
+
+  "status.ready": "Ready",
+  "status.waiting": "Waiting",
+  "status.running": "Running",
+  "status.completed": "Completed",
+  "status.stopped": "Stopped",
+  "status.error": "Error",
+
+  "state.stopped": "Stopped",
+  "state.running": "Running",
+  "state.done": "Done",
+
+  "lang.vi": "Tiếng Việt",
+  "lang.en": "English",
+
+  "error.title": "Error",
+  "error.validation.threads": "Threads must be at least 1.",
+  "error.validation.delay": "Delay must be 0 or greater.",
+  "error.validation.maxErrors": "Max Error must be at least 1.",
+  "error.validation.pagesPerThread": "Max / Account must be at least 1.",
+  "error.validation.accountPerLink": "Account per Link must be at least 1.",
+  "error.validation.image": "Unsupported image format.",
+  "error.runner.noPages": "The Page list is empty.",
+  "error.runner.noAccounts": "The Account list is empty.",
+  "error.runner.alreadyRunning": "A run is already in progress.",
+  "error.app.notReady": "The application is not ready yet.",
+  "error.generic": "Something went wrong."
+}

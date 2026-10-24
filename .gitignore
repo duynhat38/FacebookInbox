@@ -1,0 +1,22 @@
+# Build output
+build/bin
+
+# Frontend
+node_modules
+frontend/dist
+
+# Runtime data — never commit credentials or user data
+/data/*.json
+/data/*.txt
+/logs/*.log
+/assets/images/*
+
+# Keep the directories themselves
+!/data/.gitkeep
+!/logs/.gitkeep
+!/assets/images/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.tmp
