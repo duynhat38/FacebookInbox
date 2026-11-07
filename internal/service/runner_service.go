@@ -86,7 +86,10 @@ func (s *RunnerService) Start() error {
 
 	if settings.ImagePath != "" {
 		if err := s.images.Validate(settings.ImagePath); err != nil {
-			return err
+			// Image path is stale (e.g. project was moved/renamed). Clear it
+			// automatically so the run can proceed without the missing image.
+			_, _ = s.settings.SetImagePath("")
+			settings = s.settings.Get()
 		}
 	}
 

@@ -24,6 +24,7 @@ export const useRunnerStore = create<RunnerState>((set) => ({
       set({ isRunning: true })
     } catch (e) {
       // Surface the raw backend key; components localize it for display.
+      console.error('[Start] raw error:', e)
       useAppStore.getState().setError(String(e))
     }
   },

@@ -33,7 +33,7 @@ func (s *ImageService) Validate(path string) error {
 		return ErrUnsupportedImage
 	}
 	if !utils.FileExists(path) {
-		return fmt.Errorf("image not found: %s", filepath.Base(path))
+		return ErrUnsupportedImage
 	}
 	return nil
 }

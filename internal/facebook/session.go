@@ -114,13 +114,14 @@ type messengerSession struct {
 	sender *MessengerSender
 	client *http.Client
 
-	inited   bool
-	cookie   string
-	uid      string
-	proxy    string
-	pageID   string
-	deviceID string // stable per session — used in both edge-chat and LightSpeed
-	tok      messengerTokens
+	inited     bool
+	cookie     string
+	uid        string
+	proxy      string
+	pageID     string
+	deviceID   string // stable per session — used in both edge-chat and LightSpeed
+	profileIdx int
+	tok        messengerTokens
 	threadID string // cached once resolved; "" until a real resolution succeeds
 
 	pageName     string // display name fetched from facebook.com/<page_id>; cached per page
@@ -227,7 +228,8 @@ func (m *messengerSession) init(ctx context.Context, task Task) error {
 	// the jar is the single source of truth from this point on.
 	seedJar(m.client.Jar, task.Credential)
 
-	tok, err := m.sender.getTokens(ctx, m.client, task.Credential)
+	m.profileIdx = task.ProfileIndex
+	tok, err := m.sender.getTokens(ctx, m.client, task.Credential, m.profileIdx)
 	if err != nil {
 		return err
 	}
@@ -349,11 +351,11 @@ func (m *messengerSession) ensureConns(ctx context.Context) error {
 	// Use the jar's current cookies for WebSocket handshake headers — the jar may
 	// have fresher values from prior Set-Cookie responses than the original credential.
 	wsCookie := jarCookieHeader(m.client.Jar, "https://www.facebook.com", m.cookie)
-	edge, err := openEdgeChat(ctx, wsCookie, m.uid, m.proxy, m.deviceID)
+	edge, err := openEdgeChat(ctx, wsCookie, m.tok.profile, m.proxy, m.deviceID)
 	if err != nil {
 		return err
 	}
-	ls, err := openLightspeed(ctx, wsCookie, m.uid, m.proxy, m.deviceID)
+	ls, err := openLightspeed(ctx, wsCookie, m.uid, m.tok.profile, m.proxy, m.deviceID)
 	if err != nil {
 		safeCloseWS(edge)
 		return err

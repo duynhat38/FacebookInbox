@@ -189,7 +189,7 @@ func (a *App) PickImage() (string, error) {
 	selected, err := runtime.OpenFileDialog(a.ctx, runtime.OpenDialogOptions{
 		Title: "Select image",
 		Filters: []runtime.FileFilter{
-			{DisplayName: "Images", Pattern: "*.jpg;*.jpeg;*.png;*.webp"},
+			{DisplayName: "Images & PDF", Pattern: "*.jpg;*.jpeg;*.png;*.webp;*.pdf"},
 		},
 	})
 	if err != nil {

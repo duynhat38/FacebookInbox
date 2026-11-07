@@ -300,6 +300,7 @@ func (w *accountWorker) pageSteps(page, content, shareContent string) []pageStep
 		LiveID:                 w.liveID,
 		Proxy:                  w.proxy,
 		DeleteMessageAfterSend: w.deleteMessageAfterSend,
+		ProfileIndex:           w.rt.ID - 1,
 	}
 	var steps []pageStep
 	if content != "" {

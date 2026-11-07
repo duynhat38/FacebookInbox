@@ -28,11 +28,10 @@ const (
 // CONNECT + SUBSCRIBE /t_rtc_multi handshake.
 // Facebook requires this live MQTT session as proof of an active Messenger tab —
 // without it, gateway.facebook.com rejects ALL tasks.
-func openEdgeChat(ctx context.Context, cookie, uid, proxy, deviceID string) (*websocket.Conn, error) {
+func openEdgeChat(ctx context.Context, cookie string, p browserProfile, proxy, deviceID string) (*websocket.Conn, error) {
 	sid := msgrRandInt64(1_000_000_000_000_000, 9_999_999_999_999_999)
 	wsURL := fmt.Sprintf("wss://edge-chat.facebook.com/chat?region=pnb&sid=%d&cid=%s", sid, deviceID)
 
-	p := profileForUID(uid)
 	conn, _, err := newWSDialer(proxy, p.userAgent).DialContext(ctx, wsURL, wsHeaders(cookie, p))
 	if err != nil {
 		return nil, fmt.Errorf("messenger: edge-chat connect: %w", err)
@@ -40,6 +39,7 @@ func openEdgeChat(ctx context.Context, cookie, uid, proxy, deviceID string) (*we
 
 	// MQTT username JSON — mirrors Python username dict exactly.
 	// All real auth comes from the Cookie header; this is only session metadata.
+	uid := firstMatch(reCUser, cookie)
 	appIDInt, _ := parseInt64(messengerAppID)
 	username := map[string]interface{}{
 		"a":            p.userAgent, // must match the WS handshake UA
@@ -103,7 +103,7 @@ func openEdgeChat(ctx context.Context, cookie, uid, proxy, deviceID string) (*we
 
 // openLightspeed connects to gateway.facebook.com/ws/lightspeed and reads the
 // 1-byte ready signal (0x0a) the server sends immediately on open.
-func openLightspeed(ctx context.Context, cookie, uid, proxy, deviceID string) (*websocket.Conn, error) {
+func openLightspeed(ctx context.Context, cookie, uid string, p browserProfile, proxy, deviceID string) (*websocket.Conn, error) {
 	loggingID := uuid.New().String()
 	wsURL := fmt.Sprintf(
 		"wss://gateway.facebook.com/ws/lightspeed"+
@@ -113,7 +113,6 @@ func openLightspeed(ctx context.Context, cookie, uid, proxy, deviceID string) (*
 		messengerAppID, uid, loggingID, deviceID,
 	)
 
-	p := profileForUID(uid)
 	conn, _, err := newWSDialer(proxy, p.userAgent).DialContext(ctx, wsURL, wsHeaders(cookie, p))
 	if err != nil {
 		return nil, fmt.Errorf("messenger: lightspeed connect: %w", err)

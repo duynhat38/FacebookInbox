@@ -44,7 +44,7 @@ func ValidateSettings(s domain.Settings) error {
 // supported image type.
 func IsImageExt(ext string) bool {
 	switch strings.ToLower(ext) {
-	case ".jpg", ".jpeg", ".png", ".webp":
+	case ".jpg", ".jpeg", ".png", ".webp", ".pdf":
 		return true
 	default:
 		return false

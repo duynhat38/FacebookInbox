@@ -5,6 +5,7 @@ import (
 	"crypto/rand"
 	"math/big"
 	"net/http"
+	"strconv"
 	"sync"
 )
 
@@ -19,15 +20,16 @@ type MessengerSender struct {
 
 func NewMessengerSender() *MessengerSender { return &MessengerSender{} }
 
-func (s *MessengerSender) getTokens(ctx context.Context, client *http.Client, cookie string) (messengerTokens, error) {
-	if v, ok := s.cache.Load(cookie); ok {
+func (s *MessengerSender) getTokens(ctx context.Context, client *http.Client, cookie string, profileIdx int) (messengerTokens, error) {
+	cacheKey := cookie + "|" + strconv.Itoa(profileIdx)
+	if v, ok := s.cache.Load(cacheKey); ok {
 		return v.(messengerTokens), nil
 	}
-	tok, err := extractTokens(ctx, client, cookie)
+	tok, err := extractTokens(ctx, client, cookie, profileIdx)
 	if err != nil {
 		return messengerTokens{}, err
 	}
-	s.cache.Store(cookie, tok)
+	s.cache.Store(cacheKey, tok)
 	return tok, nil
 }
 

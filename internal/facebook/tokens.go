@@ -92,9 +92,9 @@ func firstMatch(re *regexp.Regexp, s string) string {
 
 // extractTokens GETs facebook.com/ and scrapes the JS tokens needed for
 // upload and Lightspeed API calls.
-func extractTokens(ctx context.Context, client *http.Client, cookie string) (messengerTokens, error) {
+func extractTokens(ctx context.Context, client *http.Client, cookie string, profileIdx int) (messengerTokens, error) {
 	uid := firstMatch(reCUser, cookie)
-	profile := profileForUID(uid)
+	profile := profileForIndex(profileIdx)
 	log.Printf("messenger: extractTokens: fetching facebook.com for c_user=%s ua=%.50s", uid, profile.userAgent)
 
 	// Pass "" so the http.Client's jar (seeded in messengerSession.init) sends

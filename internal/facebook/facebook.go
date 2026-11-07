@@ -27,6 +27,7 @@ type Task struct {
 	ClickMessenger         bool   // if true, register the account as a messenger_business_ads_sender for PageID before sending (graphql doc_id 6799089560137001)
 	DeleteThread           bool   // if true, delete the thread after sending (label 146)
 	DeleteMessageAfterSend bool   // if true, delete each sent message immediately after confirm (label 155)
+	ProfileIndex           int    // 0-based worker index — used to pick a unique browser fingerprint per account
 }
 
 // ── Sender ────────────────────────────────────────────────────────────────────
